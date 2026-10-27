@@ -1,0 +1,147 @@
+SidwaOS 0.4.0
+A minimal bootable x86 kernel: 3-state I/O machine, own two-stage
+bootloader, .sidwa partition. Runs in QEMU.
+
+Build:   make            (needs nasm, gcc -m32, ld, qemu-system-i386)
+Run:     make run        (or: qemu-system-i386 -drive file=disk.img,
+                          format=raw,if=ide,index=0 -serial stdio)
+Test:    make check
+
+disk.img is a ready-to-boot image, included so the system can be run
+without building. `make` rebuilds it from source.
+
+      size  file
+----------  ----------------------------------------
+       185  .gitignore
+     32743  AGENTS.md
+      7024  INSTALL.md
+      3049  Makefile
+      2820  README.md
+       718  boot/boot.asm
+       506  boot/gdt.asm
+      1631  boot/idt.c
+       149  boot/idt_load.asm
+      5639  boot/interrupts.c
+      2557  boot/isr.asm
+      2120  boot/stage1.asm
+      6289  boot/stage2.asm
+      4737  cpu/cache.c
+       997  cpu/io.asm
+      1431  cpu/rand.c
+      2735  cpu/serial.asm
+      1150  cpu/timer.c
+       151  cpu/tsc.asm
+   8388608  disk.img
+     13675  docs/sidwaos-cli.pdf
+      4647  drivers/ata.c
+      1211  drivers/ata_pio.asm
+      3998  drivers/keyboard.c
+      9763  drivers/rtl8139.c
+       609  include/actions.h
+      1527  include/ai.h
+      1584  include/aidebug.h
+      1233  include/app.h
+       607  include/ata.h
+      3271  include/bitflow.h
+       862  include/cache.h
+       271  include/cli.h
+      3177  include/codec.h
+      1190  include/config.h
+      2265  include/curriculum.h
+       791  include/descriptors.h
+      4051  include/fetch.h
+      2539  include/gui.h
+      2098  include/ide.h
+       653  include/interrupts.h
+       621  include/io.h
+      3489  include/kb.h
+      1168  include/keyboard.h
+      2635  include/know.h
+      1581  include/layout.h
+      3428  include/localai.h
+      2177  include/method.h
+      6937  include/net.h
+      5772  include/ollama.h
+      1601  include/optim.h
+      2455  include/outcome.h
+      1413  include/pci.h
+      3659  include/pedant.h
+      3819  include/peephole.h
+       297  include/rand.h
+      1301  include/rtl8139.h
+      4438  include/sasm.h
+       653  include/serial.h
+      1027  include/state.h
+      2877  include/stats.h
+       534  include/string.h
+      1903  include/svm.h
+      5537  include/synth.h
+      1092  include/sysinfo.h
+      4745  include/think.h
+       247  include/timer.h
+       278  include/types.h
+       182  include/version.h
+      2096  include/vga.h
+        88  iso/boot/grub/grub.cfg
+     41094  kernel/actions.c
+     13090  kernel/ai.c
+      5728  kernel/aidebug.c
+      1963  kernel/app.c
+      7101  kernel/bitflow.c
+      5112  kernel/cli.c
+     12007  kernel/codec.c
+      5672  kernel/config.c
+      4465  kernel/console.c
+     12441  kernel/curriculum.c
+      2052  kernel/enter.asm
+     18839  kernel/fetch.c
+     19218  kernel/gui.c
+     12043  kernel/ide.c
+      9618  kernel/kb.c
+      9981  kernel/kmain.c
+      8815  kernel/know.c
+      1951  kernel/layout.c
+      2441  kernel/lib.c
+     18943  kernel/localai.c
+      1623  kernel/loop_hold.c
+      3908  kernel/loop_run.c
+      1289  kernel/loop_store.c
+      6240  kernel/method.c
+     34393  kernel/net.c
+     21352  kernel/ollama.c
+      7788  kernel/optim.c
+      9287  kernel/outcome.c
+      4821  kernel/pci.c
+     12355  kernel/pedant.c
+     15870  kernel/peephole.c
+     24155  kernel/sasm.c
+      2471  kernel/state.c
+     11623  kernel/stats.c
+      5596  kernel/svm.c
+     21844  kernel/synth.c
+      5367  kernel/sysinfo.c
+     18623  kernel/think.c
+      5356  kernel/vga.c
+       621  linker.ld
+     13413  tools/agent.py
+      1309  tools/automation/sidwaos-auto-update.prompt.md
+      8755  tools/cli_test.py
+     18182  tools/distill.py
+      6336  tools/distill_pool.json
+      3097  tools/distill_verified.json
+     11389  tools/install.py
+      3119  tools/mkapp.py
+      8027  tools/mkboot.py
+     14080  tools/mkpdf.py
+      8211  tools/mkusb.py
+      7176  tools/mkzip.py
+     19988  tools/ollama_teach.py
+     14147  tools/parttool.py
+      6971  tools/pedant.py
+      2493  tools/test.sh
+     15687  web/ai.py
+     26549  web/index.html
+      8737  web/runtime.py
+     14815  web/server.py
+
+disk.img sha256  d563c35dfc0a6bafdda81cc24b48f7d426b8b9d3ff3422a63bd692ab121ce988
